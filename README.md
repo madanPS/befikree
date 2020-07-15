@@ -15,5 +15,5 @@ chmod +x script.sh
 ```
 
 ## some infos
-wmctrl => using to switch between workspace and application
+wmctrl => using to switch between workspace and application <br />
 xdotool => using for mouse events
