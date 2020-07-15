@@ -25,14 +25,17 @@ xdotool => using for mouse events
 ```
 wmctrl -l
 ```
+
 > activate window
 ```
 wmctrl -a <window name>
 ```
+
 > activate workspace
 ```
 wmctrl -s <workspace number>
 ```
+
 > get running desktops
 ```
 wmctrl -d
@@ -42,3 +45,18 @@ wmctrl -d
 ```
 xdotool getmouselocation
 ```
+
+> get XXX && YYY from above
+```
+xdotool mousemove XXX YYY click 1
+xdotool mousemove XXX YYY click 2
+xdotool mousemove XXX YYY click 4
+xdotool mousemove XXX YYY click 5
+```
+
+> repeat 3 times at delay of 3 seconds to left click mouse
+```
+xdotool click --delay 3000 --repeat 3 1
+```
+
+
