@@ -8,18 +8,18 @@
 
 ## workpsace 0
 
-sleep 1
+sleep 1m
 
 ## open firefox
 wmctrl -a "Mozilla Firefox"
-sleep 2
+sleep 2m
 #scroll
 xdotool click --delay 3000 --repeat 3 4
 xdotool click --delay 3000 --repeat 3 5
 #click refresh
 #xdotool getmouselocation
 xdotool mousemove 83 121 click 1
-sleep 5
+sleep 5m
 
 
 ## open vscode
@@ -54,10 +54,11 @@ sleep 2m
 wmctrl -s 0
 sleep 2m
 
-## vscode
+## active vscode
 wmctrl -a "Visual Studio Code"
 sleep 2m
 xdotool mousemove 1321 104 click 1
 
+## active terminal(name)
 wmctrl -a naad@linux: ~/scripts
 echo "completed"
