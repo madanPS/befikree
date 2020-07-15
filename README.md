@@ -13,3 +13,7 @@ sudo apt install xdotool
 chmod +x script.sh
 ./script.sh
 ```
+
+## some infos
+wmctrl => using to switch between workspace and application
+xdotool => using for mouse events
