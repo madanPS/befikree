@@ -21,17 +21,24 @@ xdotool => using for mouse events
 
 ## try in terminal
 
-### get running windows
+> get running windows
 ```
 wmctrl -l
 ```
-
-### get running desktops
+> activate window
+```
+wmctrl -a <window name>
+```
+> activate workspace
+```
+wmctrl -s <workspace number>
+```
+> get running desktops
 ```
 wmctrl -d
 ```
 
-### get mouse location
+> get mouse location
 ```
 xdotool getmouselocation
 ```
