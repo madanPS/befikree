@@ -1,12 +1,15 @@
 # befikree
-automate stuffs to get out of sight in manic time
+> automate stuffs to get out of sight in manic time
 
-# install following 
-
+## install
+```
 sudo apt update
 sudo apt install wmctrl
 sudo apt install xdotool
+```
 
-# run 
+## run 
+```
 chmod +x script.sh
 ./script.sh
+```
