@@ -1,64 +1,116 @@
-#!/bin/bash
 
-#echo 'Workspace?'
-#read workspace
-#wmctrl -s $workspace!
-#wmctrl -l
-#wmctrl -d
-
-## workpsace 0
-
-sleep 1m
-
-## open firefox
-wmctrl -a "Mozilla Firefox"
-sleep 2m
-#scroll
-xdotool click --delay 3000 --repeat 3 4
-xdotool click --delay 3000 --repeat 3 5
-#click refresh
-#xdotool getmouselocation
-xdotool mousemove 83 121 click 1
-sleep 5m
+###############
+#Firefox (7 mins)
+###############
+firefox() {
+    echo "running firefox"
+    wmctrl -a "Mozilla Firefox"
+    sleep 2
+    ### click on home
+    xdotool mousemove 117 119 click 1
+    sleep 2
+    #scroll
+    xdotool mousemove 1223 471 click 1
+    xdotool click --delay 6000 --repeat 5 5 ##scroll down
+    xdotool click --delay 6000 --repeat 5 4 ##scroll up
+    ### click on refresh
+    xdotool mousemove 82 119 click 1
+    sleep 2
+}
 
 
-## open vscode
-wmctrl -a "Visual Studio Code"
-sleep 3m
-## click on splitter
-xdotool mousemove 1321 104 click 1
-sleep 2m
+###############
+#Skype (10 mins)
+###############
+skype() {
+    echo "running skype"
+    # move skype to next window
+    wmctrl -r "Skype" -t 1
+    wmctrl -a "Skype"
+    sleep 1
+    ### maximize window size
+    skype_size=$(xdotool search --onlyvisible --name skype)
+    # echo "${skype_size}"
+    xdotool windowsize ${skype_size} 1366 768
+    sleep 1
+    ### click on notifications
+    xdotool mousemove 283 210 click 1
+    sleep 2
+    ### click on contacts
+    xdotool mousemove 198 210 click 1
+    sleep 2
+    ### click on calls
+    xdotool mousemove 120 210 click 1
+    sleep 2
+    ### click on chats
+    xdotool mousemove 41 210 click 1
+    sleep 2
+}
+
+###############
+#switch workspace (1 min)
+###############
+swtich_workspace(){
+    echo "switch workspace"
+    wmctrl -s $1
+    sleep 1
+}
+
+###############
+#VSCODE (20 mins)
+###############
+vscode(){
+    echo "running vscode"
+    #open vscode and click opened tabs
+    wmctrl -a "Visual Studio Code"
+    sleep 2
+    ## cycle through open tabs
+    xdotool mousemove 225 107 click 1
+    sleep 2
+    xdotool mousemove 330 107 click 1
+    sleep 2
+    xdotool mousemove 432 107 click 1
+    sleep 2
+    xdotool mousemove 600 107 click 1
+    sleep 2
+    #open split editor
+    xdotool mousemove 1321 104 click 1
+    sleep 2
+    #close split editor
+    xdotool mousemove 940 104 click 1
+    sleep 2
+    xdotool mousemove 774 107 click 1
+    sleep 2
+    #open split editor
+    xdotool mousemove 1321 104 click 1
+    sleep 2
+    #close split editor
+    xdotool mousemove 940 104 click 1
+    sleep 2
+}
 
 
+###############
+#terminal
+###############
+terminal(){
+    wmctrl -a naad@linux: ~/scripts
+    echo "completed"
+}
+
+## run script
+sleep 1
 
 
-## switch workspace 1
-wmctrl -s 1
-sleep 1m
-
-## activate skype
-wmctrl -a "Skype"
-sleep 2m
-xdotool mousemove 831 333 click 1
-xdotool mousemove 831 333 click 4
-xdotool mousemove 831 333 click 4
-xdotool mousemove 831 333 click 4
-xdotool mousemove 831 333 click 5
-xdotool mousemove 831 333 click 5
-xdotool mousemove 831 333 click 5
-sleep 2m
+firefox
+skype
+swtich_workspace 0
+vscode
 
 
+firefox
+skype
+swtich_workspace 0
+vscode
 
-##switch to workpsace 0
-wmctrl -s 0
-sleep 2m
-
-## active vscode
-wmctrl -a "Visual Studio Code"
-sleep 2m
-xdotool mousemove 1321 104 click 1
-
-## active terminal(name)
-wmctrl -a naad@linux: ~/scripts
-echo "completed"
+terminal
