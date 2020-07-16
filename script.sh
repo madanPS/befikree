@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ###############
 #Firefox (7 mins)
